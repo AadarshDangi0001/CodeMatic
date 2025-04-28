@@ -2,6 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
+
+const apiUrl = process.env.REACT_APP_API_URL;
+
+
 export default function ChatbotPage() {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
@@ -49,7 +53,7 @@ export default function ChatbotPage() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/chat", {
+      const response = await fetch(`${apiUrl}/api/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -279,7 +283,7 @@ export default function ChatbotPage() {
 
       {/* Resources Section (Right 30%) */}
       {/* Resources Section (Right 30%) */}
-      <div className="resources-container" style={{ width: "30%" }}>
+      <div className="resources-container" style={{ width: "30%" , overflow:"hidden"}}>
         <h3>Related Resources</h3>
         {resources ? (
           <div className="resources-content">
