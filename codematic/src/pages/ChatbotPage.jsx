@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = import.meta.env.VITE_API_URL;;
 
 
 export default function ChatbotPage() {
@@ -53,7 +53,7 @@ export default function ChatbotPage() {
     setIsLoading(true);
 
     try {
-      const response = await fetch(`${apiUrl}/api/chat`, {
+      const response = await fetch('http://localhost:5000/api/chat', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

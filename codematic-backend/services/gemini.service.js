@@ -42,11 +42,11 @@ Resources:
 ---
 
 Problem: "${problemStatement}"
-`;
+  `;
 
-  const result = await model.generateContent({
-    contents: [{ role: "user", parts: [{ text: prompt }] }]
-  });
+    const result = await model.generateContent({
+      contents: [{ role: "user", parts: [{ text: prompt }] }]
+    });
 
   return result.response.text();
 }
